@@ -24,12 +24,12 @@ body {
 }
 
 .navbar-header {
-	height: 120px;
+	height: 100px;
 }
 
 
 .navbar-brand img {
-	height: 90px;
+	height: 70px;
 	margin-left: 10px;
 }
 
@@ -109,7 +109,7 @@ body {
 
 #override .footer .navbar-fixed-bottom{
 	background-color: #037A82;
-	
+
 	
 }
 
