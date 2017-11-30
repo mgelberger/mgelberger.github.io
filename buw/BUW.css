@@ -38,6 +38,7 @@ p {
 #override .navbar-nav li a{
 	font-size: 18px;
 	color: white;
+	font-family: 'Roboto Slab', serif;
 }
 
 
