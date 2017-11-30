@@ -8,12 +8,17 @@ p {
 
 }
 
+body {
+	padding-top: 130px;
+	padding-bottom: 70px;
+}
+
 .navbar-default {
 	border-color: navy;
 	background: navy; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left, #0079B5 , #00434C); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #25426F , #00434C); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #25426F , #00434C); /* For Firefox 3.6 to 15 */
+    background: -webkit-linear-gradient(left, #106A94 , #037A82); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #106A94 , #037A82); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #106A94 , #037A82); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #106A94 , #037A82); /* Standard syntax (must be last) */
 	/*background-image: url("skyline.png");*/
 }
@@ -102,6 +107,11 @@ p {
 }
 
 
+#override .footer .navbar-fixed-bottom{
+	background-color: #037A82;
+	
+	
+}
 
 @media only screen and (max-width : 768px) {
 
@@ -114,6 +124,12 @@ p {
 	height: 70px;
 	margin-left: 10px;
 }
+
+	body {
+		padding-top: 110px;
+		padding-bottom: 70px;
+	}
+
 
    #override .navbar-nav>li{ 
        	padding-left: 15px;
