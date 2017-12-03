@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>Boston Under Water</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <link rel="stylesheet" href="BUW.css">
    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  #set-height {
+    display: block;
+  }
+  #v0 {
+    position: fixed;
+    top: 101px;
+    left: 10%;
+    width: 80%;
+    z-index:-1;
+  }
+  body {
+    color:white;
+    /*font-style: "Georgia";*/
+  }
+
+</style>
 </head>
 <body id="override">
 
@@ -39,22 +57,109 @@
   </div>
 </nav>
 
-	<div id="content">
-		
-		<h2> In 100 years, Boston might be under water. 
-			<br> Begin scrolling to learn more... </h1>
-		<!-- <div id="video">
-			<video controls muted autoplay>
-				  <source src="flood.mp4" type="video/mp4">
-					Your browser does not support the video tag.
-			</video>
-		</div> -->
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br>
-		
-	
-	</div>
+  <div id="set-height">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>Boston Underwater</h1>
+          <div id="content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p id="time"></p>
 
+  <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="Test.mp4"></source>
+    <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+  </video>
+
+  <script>
+    var data = [
+      {
+        top: 100,
+        content: "<h1>Land Reclamation</h1>"
+      },
+
+      {
+        top: 400,
+        content: "In the early 1600s, approximately 1/6 of modern day Boston was underwater. The area was known to the locals as Shawmut. When William Blackstone, the first European settler in the area, first moved there in the 1620s, Boston was little more than a small peninsula surrounded by water and connected to mainland by a small land bridge named Roxbury Neck. Shawmut Peninsula was about 780 acres and was defined by three large hills called Copps Hill, Fort Hill and the Trimountain."
+      },
+
+      {
+        top: 1500,
+        content: "Boston was plagued by overpopulation until the mid 1800s, resulting in pressure on city resources. Officials resolved the issue by undertaking land reclamation efforts, which mainly consisted of demolishing the hills and using the soil to fill in the surrounding wetlands. This method and its results destroyed the local ecology, but solved sanitation problems that had been affecting the city."
+      },
+
+      {
+        top: 2700,
+        content: "The Boston we know now was beginning to take shape. Copps Hill became North End, Fort Hill became the Financial District, and Trimountain was now Beacon Hill. By the end of the 19th century, Back Bay and South End were completely filled in."
+      },
+
+      {
+        top: 3600,
+        content: "Under modern day environmental regulations, it is likely that land reclamation would not have been approved. There were a number of environmental changes that took place throughout the process. For example, the Mill pond and the bay itself, which were initially left as is, had to be filled in as prior fillings, dam, and railroad projects had all left the water stagnant and filthy. Most importantly, the landscape of the area was completely transformed once land reclamation was over."
+      },
+
+      {
+        top: 4500,
+        content: "<h1>Industrialization</h1>"
+      },
+
+      {
+        top: 4800,
+        content: "Another major global change overlapped with Boston’s 19th century land reclamation projects: The Industrial Revolution. It began in Britain in the late 1700s and later spread to the United States. Key advancements made during the Revolution were the development of the factory system, the creation of the steam engine, and, most importantly, the use of fossil fuels to power machines."
+      },
+
+      {
+        top: 5800,
+        content: "Massachusetts was one of the first places to adopt the new technologies. There, Francis Cabot Lowell established the first power loom and integrated textile mill and Samuel Slater set up the first cotton mill. Factories, mills, and railroads quickly sprung up across the country during the 1800s."
+      },
+
+      {
+        top: 6600,
+        content: "The Revolution did more than transform the American economy; it also altered the nation’s physical landscape. As noted above, the railroads directly led to more land reclamation. Furthermore, the Revolution increased urbanization and overall population growth throughout the US, including Boston, which had high numbers of industrial laborers."
+      },
+
+      {
+        top: 8000,
+        content: "Industrialization’s impact on the environment has been well documented. Fossil fuel powered factories dramatically increased pollution, leading to a globally felt greenhouse effect. More population means more demand for goods, causing a cycle of pollution. This has contributed to a steady stream of greenhouse gasses entering the atmosphere since the start of the Industrial Revolution."
+      }
+    ];
+
+    var content = "";
+    for(var i = 0; i < data.length; i++) {
+      var item = data[i];
+      content += "<div style=\"position:absolute; top:" + item.top + "px;\">" + item.content + "</div>";
+    }
+    document.getElementById("content").innerHTML = content;
+
+    var frameNumber = 0, // start video at frame 0
+        // lower numbers = faster playback
+        playbackConst = 1500, 
+        // get page height from video duration
+        setHeight = document.getElementById("set-height"), 
+        // select video element         
+        vid = document.getElementById('v0'); 
+        // var vid = $('#v0')[0]; // jquery option
+
+    // dynamically set the page height according to video length
+    vid.addEventListener('loadedmetadata', function() {
+      setHeight.style.height = vid.duration * playbackConst + "px";
+    });
+
+
+    // Use requestAnimationFrame for smooth playback
+    function scrollPlay(){  
+      var frameNumber  = window.pageYOffset/playbackConst;
+      vid.currentTime  = frameNumber;
+      window.requestAnimationFrame(scrollPlay);
+    }
+
+    window.requestAnimationFrame(scrollPlay);
+  </script>
+</body>
   <footer class="footer">
       <div class="navbar navbar-fixed-bottom">
       </div>
