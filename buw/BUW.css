@@ -1,15 +1,18 @@
 h2, h3 {
 	font-family: 'Georgia-BoldItalic', serif;
 
+
 }
 
 p{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
 
 }
 
 p .card-text {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
 
 
 }
@@ -60,7 +63,7 @@ body {
 #override .navbar-nav li a{
 	font-size: 18px;
 	color: white;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Georgia-Bold', serif;
 }
 
 
