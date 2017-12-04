@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>How To Help</title>
   <meta charset="utf-8">
@@ -10,6 +11,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+  .card {
+    height: 100%;
+    margin: 2px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    text-align: center;
+    
+  }
+  .card-body {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .img-fluid{
+    
+    height: 200px;
+    text-align: center;
+  }
+
+</style>
 <body id="override">
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -53,80 +76,55 @@
 		
     
     <h2> <b> Get Involved </b></h2>
+    <br>
 
-
-    <hr>
-    <div class="row">
-        <div class="col-md-3"> 
-           <img class="orglogo" src="greenovate.png">
-        </div>
-           
-       
-        <div class="col-md-9">
-          <br>
-          <p>Greenovate Boston is Mayor Walsh’s initiative to get all Bostonians involved in eliminating the pollution that causes global climate change, while continuing to make Boston a healthy, thriving, and innovative city.</p>
-
-          <p> When you join the Greenovate community, you learn how you can be a partner in solutions for building a healthy, thriving, and innovative city despite a changing climate. Boston can reach our collective goals if everyone joins the movement to “greenovate” our City. </p>
-
-
-           <button type="button" class="btn btn-info">
-              <a href="http://greenovateboston.org/signup_survey">Learn how to help</a>
-           </button>
-
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="row">
-        <div class="col-md-3"> 
-           <img class="orglogo" src="wbur.jpg">
-        </div>
-           
-       
-        <div class="col-md-9">
-          <br>
-          <p>Every single person can make a difference when it comes to climate change and reducing our footprint on the environment. You can take small and preventative steps by just changing your daily habits. </p>
-
-          <p>Check out WBUR Boston's advice for how Massachusetts residents can make an impact on climate change.</p>
-
-         <br><br>
-
-
-           <button type="button" class="btn btn-info">
-              <a href="http://www.wbur.org/news/2017/08/29/massachusetts-what-can-you-do-about-climate-change">Change your habits</a>
-           </button>
-
-        </div>
-    </div>
+<div class="row">
+  <div class="col-sm-4">
     
-    <hr>
-
-    <div class="row">
-        <div class="col-md-3"> 
-           <img class="orglogo" src="safety.jpg">
-        </div>
-           
-       
-        <div class="col-md-9">
-          <br>
-          <p>Massachusetts's Executive Office of Public Safety and Security has an informative guide that teaches people how to be prepared for floods. </p>
-
-          <o> Flooding is a real possibility for certain communities in Boston and is the most common hazard in Massachusetts. There are multiple ways individuals and families can prepare for flooding, like making emergency kits, creating flooding plans, and contacting local officials to get informed about the best course of action one has to take in response to potential flooding.  </p>
-
-         <br>
-
-
-           <button type="button" class="btn btn-info">
-              <a href="http://www.mass.gov/eopss/agencies/mema/emergencies/floods/">Be prepared</a>
-           </button>
+      <!--Card-->
+    <div class="card" style="border: 1px solid; border-color: #12436b">
+        <img class="img-fluid" src="greenovate.png" alt="Card image cap">
+        <div class="card-body">
+          <hr>
+            <p class="card-text">Greenovate Boston is an initiative to get all Bostonians involved in eliminating the pollution that causes global climate change, while continuing to make Boston a healthy, thriving, and innovative city. Join the Greenovate community to you learn how to be a partner in solutions for building a thriving city despite a changing climate.  </p>
 
         </div>
-    </div>
-   
-    <hr>
 
+        <a href="http://www.wbur.org/news/2017/08/29/massachusetts-what-can-you-do-about-climate-change" style="width: 100%;" class="btn btn-info">Change your habits</a>
     </div>
+  </div>
+    <!--/.Card-->
+
+       <!--Card-->
+    <div class="col-sm-4">
+     <div class="card" style="border: 1px solid; border-color: #12436b">
+          <img class="img-fluid" src="wbur.jpg" alt="Card image cap">
+          <div class="card-body">
+            <hr>
+              <p class="card-text">Every single person can make a difference when it comes to climate change and reducing our footprint on the environment. You can take small and preventative steps by just changing your daily habits. Check out WBUR Boston's advice for how Massachusetts residents can make an impact on climate change.</p> 
+          </div>
+          <a href="http://greenovateboston.org/signup_survey" style="width: 100%;" class="btn btn-info">Learn how to help</a>
+      </div>
+    </div>
+    <!--/.Card-->
+
+       <!--Card-->
+
+    <div class="col-sm-4">
+      <div class="card" style="border: 1px solid; border-color: #12436b">
+          <img class="img-fluid" src="safety.jpg" alt="Card image cap">
+          <div class="card-body">
+            <hr>
+              <p class="card-text">Massachusetts's Executive Office of Public Safety and Security says that flooding is the the most common hazard in Massachusetts. There are multiple ways individuals and families can prepare for flooding, like making emergency kits, creating flooding plans, and contacting local officials to get informed about the best course of action.  </p>
+
+          </div>
+           <a href="http://www.mass.gov/eopss/agencies/mema/emergencies/floods/" style="width: 100%;" class="btn btn-info">Be prepared</a>
+      </div>
+    </div>
+    <!--/.Card-->
+
+</div>
+
 
 
 	</div>
