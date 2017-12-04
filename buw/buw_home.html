@@ -20,7 +20,7 @@
     left: 28%;
     width: 70%;
     z-index:-1;
-    bottom: 200px;
+    
   }
   body {
     color: black;
@@ -30,8 +30,12 @@
 
   .container {
     margin-left: 10px;
+    
   }
 
+  #set-height {
+   padding-bottom: 100px;
+  }
 
 </style>
 </head>
@@ -65,26 +69,25 @@
 </nav>
 
 
-  <div id="set-height">
+  <div style = "margin-bottom: 50px;" id="set-height">
     <div class="container">
       <div class="row">
+
         <div class="col-xs-3">
-          <div id="content">
-             <!-- <h1>Boston Underwater</h1> -->
-          </div>
+            <div id="content"></div>
+        </div>
+
         <div class="col-xs-9">
             <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
-    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="Test.mp4"></source>
-    <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
-  </video>
+            <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="Test.mp4"></source>
+            <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+            </video>
         </div>
+
       </div>
     </div>
   </div>
   <p id="time"></p>
-
-  
-
 
   <script>
     var data = [
@@ -181,7 +184,7 @@
   <footer class="footer">
       <div class="navbar navbar-fixed-bottom">
       </div>
-    </footer>
+  </footer>
 
 </body>
 
