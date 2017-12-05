@@ -25,7 +25,7 @@ body {
 
 
   h2 {
-    background-color: #979eaa;
+    background-color: #4D6989;
     padding: 10px;
     color: white;
     margin: auto;
@@ -34,11 +34,12 @@ body {
 
 .navbar-default {
 	border-color: navy;
+	border-bottom: none;
 	background: navy; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left, #106A94 , #040027); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #106A94 , #040027); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #106A94 , #040027); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #106A94 , #040027); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(left, #778899, #A9A9A9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #778899, #A9A9A9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #778899, #A9A9A9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #778899, #A9A9A9); /* Standard syntax (must be last) */
 	/*background-image: url("skyline.png");*/
 }
 
@@ -101,8 +102,8 @@ body {
 	width: 200px; 
 	height: 45px; 
 	border-radius: 0%;
-	background-color: #12436b;
-	border-color: #12436b;
+	background-color: #4D6989;
+	border-color: #4D6989;
 	font-size: 18px;
 	border-radius: 0px 0px 15px 15px;
 
@@ -113,8 +114,8 @@ body {
 	width: 200px; 
 	height: 45px; 
 	border-radius: 0%;
-	background-color: #165385;
-	border-color: #165385;
+	background-color: #6180A4;
+	border-color: #6180A4;
 	border-radius: 0px 0px 15px 15px;
 
 }
