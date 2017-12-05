@@ -16,14 +16,25 @@
     display: block;
 
   }
-
-  #v0 {
+  #wrapper {
     position: fixed;
     top: 101px;
     left: 28%;
     width: 70%;
+    display: table;
+  }
+  #v0 {
+    
+    width: 100%;
     z-index:-1;
     
+  }
+  #overlay {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
   }
   body {
     color: black;
@@ -78,15 +89,20 @@
         </div>
 
         <div class="col-xs-9">
-            <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
-            <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="Test.mp4"></source>
-            <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
-            </video>
+	    <div id="wrapper">
+		    <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+		    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="Test.mp4"></source>
+		    <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+		    </video>
+		    <div id="overlay">
+		    </div>
+	    </div>
         </div>
 
       </div>
     </div>
   </div>
+  <div id="modals"></div>
   <p id="time"></p>
 
   <script>
@@ -145,13 +161,33 @@
       }
     ];
 
+    var overlays = [
+        {
+		top: 400,
+		bottom: 1400,
+		type: "modal",
+		buttonStyle:"top: 20%; left: 70%",
+		button: "Beacon Hill",
+		modal: {
+			title: "Beacon Hill",
+			body: "<p>It is a neighborhood of Federal-style rowhouses and is known for its narrow, gaslit streets and brick sidewalks. Today, Beacon Hill is regarded as one of the most desirable and expensive neighborhoods in Boston.</p>"
+		}
+	}
+    ];
+
+    var modals = "";
+    for(var i = 0; i < overlays.length; i++) {
+    	modals += '<div class="modal fade" id="modal-'+i+'" tabindex="-1" role="dialog">          <div class="modal-dialog" role="document">            <div class="modal-content">              <div class="modal-header">                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                <h4 class="modal-title">'+overlays[i].modal.title+'</h4>              </div>              <div class="modal-body">                '+overlays[i].modal.body+'              </div>              <div class="modal-footer">                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>              </div>            </div>          </div>        </div>';
+    }
+    document.getElementById("modals").innerHTML = modals;
+
     var content = "";
     for(var i = 0; i < data.length; i++) {
       var item = data[i];
       content += "<div style=\"position:absolute; top:" + item.top + "px;\">" + item.content + "</div>";
     }
     document.getElementById("content").innerHTML = content;
-
+    var video_height = 300;
     var frameNumber = 0, // start video at frame 0
         // lower numbers = faster playback
         playbackConst = 1500, 
@@ -160,6 +196,9 @@
         // select video element         
         vid = document.getElementById('v0'); 
         // var vid = $('#v0')[0]; // jquery option
+	wrapper = document.getElementById('wrapper');
+	overlay = document.getElementById('overlay');
+
 
     // dynamically set the page height according to video length
     vid.addEventListener('loadedmetadata', function() {
@@ -168,13 +207,31 @@
 
 
     // Use requestAnimationFrame for smooth playback
+    var prevO = "";
     function scrollPlay(){  
-      var frameNumber  = window.pageYOffset/playbackConst;
+      var y = window.pageYOffset;
+      var frameNumber  = y/playbackConst;
       vid.currentTime  = frameNumber;
       window.requestAnimationFrame(scrollPlay);
+
+      var o = "";
+      for(var i = 0; i < overlays.length; i++) {
+	if(y >= overlays[i].top && y < overlays[i].bottom) o += '<button class="btn btn-lg btn-default" style="position:absolute;'+overlays[i].buttonStyle+'" data-toggle="modal" data-target="#modal-'+i+'">'+overlays[i].button+'</button>';
+      }
+      if(prevO !== o) {
+        prevO = o;
+        overlay.innerHTML = o;
+      }
     }
 
     window.requestAnimationFrame(scrollPlay);
+
+    function updateOverlayHeight() {
+      overlay.style.height = vid.offsetHeight + "px";
+    }
+
+    window.addEventListener("resize", updateOverlayHeight);
+    updateOverlayHeight();
   </script>
 
   
