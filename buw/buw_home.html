@@ -46,7 +46,9 @@
     margin-left: 10px;
     
   }
-
+  .navbar-nav > li > a:hover {
+	background-color: rgba(0,0,0,0) !important;
+  }
 
 </style>
 </head>
@@ -104,13 +106,20 @@
   </div>
   <div id="modals"></div>
   <p id="time"></p>
+  <footer class="footer">
+      <div class="navbar navbar-fixed-bottom">
+	<ul id="footer-content" class="nav navbar-nav">
 
+	</ul>
+      </div>
+  </footer>
   <script>
     var data = [
     
       {
-        top: -20,
-        content: "<h2>Land Reclamation</h2>"
+        top: -100,
+        content: "<h2>Land Reclamation</h2>",
+	section: "Land Reclamation"
       },
 
 
@@ -137,7 +146,8 @@
 
       {
         top: 4500,
-        content: "<h2>Industrialization</h2>"
+        content: "<h2>Industrialization</h2>",
+	section: "Industrialization"
       },
 
       {
@@ -163,8 +173,8 @@
 
     var overlays = [
         {
-		top: 400,
-		bottom: 1400,
+		top: 6000,
+		bottom: 7000,
 		type: "modal",
 		buttonStyle:"top: 20%; left: 70%",
 		button: "Beacon Hill",
@@ -182,10 +192,16 @@
     document.getElementById("modals").innerHTML = modals;
 
     var content = "";
+    var footer = "";
     for(var i = 0; i < data.length; i++) {
       var item = data[i];
-      content += "<div style=\"position:absolute; top:" + item.top + "px;\">" + item.content + "</div>";
+      var pad = item.section?"padding-top: 100px;":"";
+      content += "<div style=\""+pad+"position:absolute; top:" + item.top + "px;\" id=\"item-data-"+i+"\">" + item.content + "</div>";
+      if(item.section) {
+	footer += '<li><a href="#item-data-'+i+'">'+item.section+'</a></li>';
+      }
     }
+    document.getElementById("footer-content").innerHTML = footer;
     document.getElementById("content").innerHTML = content;
     var video_height = 300;
     var frameNumber = 0, // start video at frame 0
@@ -202,7 +218,7 @@
 
     // dynamically set the page height according to video length
     vid.addEventListener('loadedmetadata', function() {
-      setHeight.style.height = vid.duration * playbackConst + "px";
+      setHeight.style.minHeight = vid.duration * playbackConst + "px";
     });
 
 
@@ -237,11 +253,6 @@
   
 
 
-</body>
-  <footer class="footer">
-      <div class="navbar navbar-fixed-bottom">
-      </div>
-  </footer>
 
 </body>
 
